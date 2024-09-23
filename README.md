@@ -38,7 +38,7 @@
 <img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yazardüzenleme.JPG"/>
 <h6>Yazar Ekleme</h6>
 <img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yazarekleme.JPG"/>
-<h6>Yeni Eklenen YazarListenin Sonuna Eklendi</h6>
+<h6>Yeni Eklenen Yazar Kitap Ekleme bölümünde seçilebildi</h6>
 <img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yenieklenenyazarlistedeçıktı.JPG"/>
 
 
