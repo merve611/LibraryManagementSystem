@@ -25,7 +25,7 @@
        <td><a href="#"><img alt="Bootstrap" title="Bootstrap" height="50px"
                         src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bootstrap/bootstrap.png" /></a>
             </td>
-    </tr>
+    </tr
     <tr>
       <td><a href="#"><img alt="ASP" title="ASP" height="50px"
                         src="https://www.vectorlogo.zone/logos/dotnet/dotnet-ar21.svg" /></a>
