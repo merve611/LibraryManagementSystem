@@ -33,8 +33,7 @@
       <td><a href="#"><img alt="C#" title="C#" height="50px"
                         src="https://img.icons8.com/color/48/000000/c-sharp-logo.png" /></a>
             </td>
-       <td><a href="#"><img alt="C#" title="C#" height="50px"
-                        src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" /></a>
+       <td>
             </td>
       <td>
             </td>
