@@ -1,4 +1,4 @@
-<img src="https://github.com/merve611/LibraryManagementSystem/main/images/book1.gif.gif?raw=true"/>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/main/images/book1.gif?raw=true"/>
 
 <h1>Library Management System</h1>
 
