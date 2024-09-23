@@ -12,6 +12,19 @@
 * ⬆️:: **Giriş**: Kullanıcı email ve şifresi ile giriş yapar, herhangi birini yanlış girerse uyarı alır .
 * ⬇️:: **Çıkış**: Kullanıcı sağ üst ten çıkış yapar.
 
+
+ <h1 id="built-with">Proje Görünümü</h1>
+
+
+
+
+
+
+
+
+
+
+
  <h1 id="built-with">Geliştirildiği Teknolojiler</h1>
 
 <table>
