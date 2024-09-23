@@ -1,5 +1,5 @@
 
-<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/book1.gif"/>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/book2.gif"/>
 <h1>Library Management System</h1>
 
 **Patika.dev Apsiyon .NET Core Bootcamp** 2. bitirme projesi olarak **Library Management Systemr** isimli uygulamayı geliştirdim.  **Library Management System** içerisinde Kütüphane Yönetiminde kullanılacak kitap ve yazar için işlemler yapılır
