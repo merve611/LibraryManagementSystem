@@ -58,8 +58,8 @@
 
 <p align="center">
 </a>
-<a href="https://www.linkedin.com/in/dogukanngumus/">
-  <img alt="dogukanngumus's LinkdeIN" width="35px" src="https://image.flaticon.com/icons/png/512/174/174857.png" />
+<a href="https://www.linkedin.com/in/merve-akkoyunlu-2bb1881a8/">
+  <img alt="merve's LinkdeIN" width="35px" src="https://image.flaticon.com/icons/png/512/174/174857.png" />
 </a>
 
 </p>
