@@ -14,6 +14,32 @@
 
 
  <h1 id="built-with">Proje Görünümü</h1>
+<h6>İlk Giriş</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/ilkgiris.JPG"/>
+<h6>Kayıt Olma</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/kayıtolma.JPG"/>
+<h6>Giriş Yapma</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/girişyap.JPG"/>
+<h6>Kullanıcı Girişinden Sonra Anasayfa</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/girisyaptiktansonra.JPG"/>
+<h6>Kitap Listesi</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/kitaplistesi.JPG"/>
+<h6>Kitap Detayı</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/kitapdetay.JPG"/>
+<h6>Kitap Düzenleme</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/kitapdüzenleme.JPG"/>
+<h6>Kitap Silme Onayı</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/silme%20onayı.JPG"/>
+<h6>Yazar Listesi</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yazarlistesi.JPG"/>
+<h6>Yazar Detayı</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yazardetay.JPG"/>
+<h6>Yazar Düzeltme</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yazardüzenleme.JPG"/>
+<h6>Yazar Ekleme</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yazarekleme.JPG"/>
+<h6>Yeni Eklenen YazarListenin Sonuna Eklendi</h6>
+<img src="https://github.com/merve611/LibraryManagementSystem/blob/master/images/yenieklenenyazarlistedeçıktı.JPG"/>
 
 
 
