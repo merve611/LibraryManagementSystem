@@ -1,0 +1,46 @@
+﻿
+<div class="container">
+    <div class="alert alert-warning alert-dismissible fade show">
+        <strong> Hoş Geldin!</strong>  @User.Claims.FirstOrDefault(x => x.Type == "email")?.Value -
+        @User.Claims.FirstOrDefault(x => x.Type == "id")?.Value
+
+
+    </div>
+</div>
+<h1>Kütüphane Yönetim Sistemine Hoşgeldiniz</h1>
+<div class="col-md-12">
+    <img src="~/images/banner.jpg" class="img-fluid w-100" alt="Banner Görseli">
+</div>
+<hr />
+
+@if (User.Claims.FirstOrDefault(x => x.Type == "id")?.Value != null)
+{
+
+    <div class="alert alert-primary d-flex align-items-center" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle me-2" viewBox="0 0 16 16">
+            <path d="M7.938 2.016a.13.13 0 0 1 .125 0l6.857 11.856c.03.05.048.108.048.167a.25.25 0 0 1-.25.25H1.25a.25.25 0 0 1-.25-.25c0-.059.017-.116.048-.167L7.938 2.016zM8 4.5c-.535 0-.954.462-.9.995l.35 3.507c.058.575.516 1.014 1.05 1.014h.1c.534 0 .993-.439 1.05-1.014l.35-3.507c.054-.533-.365-.995-.9-.995H8zm0 8a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg>
+        <strong> Kitap Eklemek istiyorsanız ilk olarak kitap yazarını eklemelisiniz!</strong>
+    </div>
+
+
+
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
+            <div class="card" style="width: 18rem;">
+                <img src="~/images/kitap.jpg" class="card-img-top" alt="kitap">
+                <div class="card-body">
+                    <a asp-controller="Book" asp-action="List" class="btn btn-info">Kitap Listesini Görmek İçin Tıklayınız</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="~/images/yazar.jpg" class="card-img-top" alt="yazar">
+                <div class="card-body">
+                    <a asp-controller="Author" asp-action="List" class="btn btn-info">Yazar Listesini Görmek İçin Tıklayınız</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

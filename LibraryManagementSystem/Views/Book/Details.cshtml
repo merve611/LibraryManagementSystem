@@ -1,0 +1,28 @@
+﻿@model BookListViewModel
+
+
+@if (User.Claims.FirstOrDefault(x => x.Type == "id")?.Value != null)
+{
+
+    <div class="card">
+        <div class="card-header blockquote fw-bold ">
+            @Model.Id Numaralı Kitap Detayları
+        </div>
+        <div class="card-body">
+            <blockquote class=" mb-4 fw-bold">
+                <p>Kitap İsmi : @Model.Title</p>
+                <p>Kitap Yazarı : @Model.AuthorName</p>
+
+                <p>Kitap Türü : @Model.Genre</p>
+                <p>Kitap Yayın Tarihi : @Model.PublishDate.Year</p>
+
+
+            </blockquote>
+        </div>
+    </div>
+
+
+    <a asp-action="List" asp-controller="Book" class="btn btn-outline-warning fw-bold">
+        Geri Dön
+    </a>
+}

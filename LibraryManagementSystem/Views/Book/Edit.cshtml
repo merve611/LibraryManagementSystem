@@ -1,0 +1,33 @@
+﻿@model BookEditViewModel
+
+@if (User.Claims.FirstOrDefault(x => x.Type == "id")?.Value != null)
+{
+    <h3>Kitap Düzenleme Sayfası</h3>
+
+    <form method="post" asp-controller="Book" asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+
+        <div>
+            <label>Kitap İsmi</label>
+            <input asp-for="Title" class="form-control" type="text" />
+            <span asp-validation-for="Title" class="text-danger mt-2 fw-bold"></span>
+        </div>
+
+        <div>
+            <label>Kitap Türü</label>
+            <textarea asp-for="Genre" rows="4" class="form-control"></textarea>
+            <span asp-validation-for="Genre" class="text-danger mt-2 fw-bold"></span>
+        </div>
+
+        <div>
+            <label>Yayın Tarihi</label>
+            <textarea asp-for="PublishDate" rows="4" class="form-control"></textarea>
+            <span asp-validation-for="PublishDate" class="text-danger mt-2 fw-bold"></span>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+
+    </form>
+}

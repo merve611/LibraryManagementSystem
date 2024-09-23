@@ -1,0 +1,34 @@
+﻿@model List<AuthorListViewModel>
+
+<h3>Yazar Listesi</h3>
+
+@if (User.Claims.FirstOrDefault(x => x.Type == "id")?.Value != null)
+{
+    <div class="mb-3">
+        @foreach (var author in Model)
+
+        {
+            <div class="card" style="width: 18rem; margin-bottom:20px;">
+                <img src="@author.ImageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text fw-bold">@author.FirstName @author.LastName</p>
+                </div>
+
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example " style="margin-bottom:20px;" ;>
+                <a asp-controller="Author" asp-action="Details" asp-route-id="@author.Id" class="btn btn-info">Detay</a>
+                <a asp-controller="Author" asp-action="Edit" asp-route-id="@author.Id" class="btn btn-secondary">Düzenle</a>
+                <a asp-controller="Author" asp-action="ConfirmDelete" asp-route-id="@author.Id" class="btn btn-danger">Sil</a>
+            </div>
+
+            <hr>
+        }
+
+    <div>
+        <a asp-controller="Author" asp-action="Create" class="btn btn-success fw-bold mb-3">Yeni Ekle</a>
+    </div>
+
+
+</div>
+
+            }
