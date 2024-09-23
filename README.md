@@ -6,7 +6,7 @@
 
 * 📚: **Kitap Listesi** : Bu alan kitapların listesini gösterir. Liste içerisinde bulunan metotlar sayesinde kitapların detayını görebilir, kitap ekleyebilir, silebilir ve güncelleyebilirsiniz.
 
-* 🙇‍♂️: 🙇‍♀️: **Yazar Listesi** : Bu alan yazarların listesini gösterir. Liste içerisinde bulunan metotlar sayesinde yazarların detayını görebilir, kitap ekleyebilir, silebilir ve güncelleyebilirsiniz. 
+* 🙇‍♂️: 🙇‍♀️: **Yazar Listesi** : Bu alan yazarların listesini gösterir. Liste içerisinde bulunan metotlar sayesinde yazarların detayını görebilir, yazar ekleyebilir, silebilir ve güncelleyebilirsiniz. 
 
 * 🆕:: **Kayıt Ol**: Kullanıcı email ve şifre oluşturarak kayıt olur, kayıt önceden var ise uyarı verir.
 * ⬆️:: **Giriş**: Kullanıcı email ve şifresi ile giriş yapar, herhangi birini yanlış girerse uyarı alır .
