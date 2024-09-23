@@ -9,26 +9,7 @@ namespace LibraryManagementSystem.Controllers
 {
     public class AuthorController : Controller
     {
-        static List<AuthorEntity> _authors = new List<AuthorEntity>()
-        {
-            new AuthorEntity { Id = 1, FirstName = "Sabahattin", LastName= "Ali", ImageUrl = "../images/Sabahattin_ali.jpg" },
-            new AuthorEntity { Id = 2, FirstName = "J. K. ", LastName= "Rowling", ImageUrl = "../images/J.K.-Rowling.jpg"},
-            new AuthorEntity { Id = 3, FirstName = "Fyodor", LastName="Dostoyevski", ImageUrl = "../images/Dostoyevski.jpg"},
-            new AuthorEntity { Id = 4, FirstName = "Pierre ", LastName= "Franckh", ImageUrl = "../images/Pierre.jpg"},
-            new AuthorEntity { Id = 5, FirstName = "İlber", LastName= "Ortaylı", ImageUrl = "../images/ilberuortay.jpg"},
-
-
-        };
-        static List<BookEntity> _books = new List<BookEntity>()
-        {
-            new BookEntity{ Id = 1, Title = "Sırça Köşk", AuthorId = 1, Genre = "Psikolojik Roman", PublishDate =  new DateTime(1947, 1, 1)},
-
-            new BookEntity{ Id = 2, Title = "Harry Potter ve Felsefe Taşı", AuthorId = 2, Genre = "Fantastik Roman", PublishDate = new DateTime(1997,1, 1) },
-            new BookEntity{ Id = 3, Title = "Suç ve Ceza", AuthorId = 3, Genre = "Felsefi Roman", PublishDate = new DateTime(1886, 1, 1) },
-            new BookEntity{ Id = 4, Title = "Rezonans Kanunu", AuthorId = 4, Genre = "Kişisel Gelişim", PublishDate = new DateTime(2019,1, 1) },
-            new BookEntity{ Id = 5, Title = "Bir Ömür Nasıl Yaşanır", AuthorId = 5, Genre = "Kişisel Gelişim", PublishDate = new DateTime(2019, 1, 1) },
-            new BookEntity{ Id = 5, Title = "Bir Ömür Nasıl Yaşanırrrrrrrrrrrrrrr", AuthorId = 6, Genre = "Kişisel Gelişim", PublishDate = new DateTime(2019, 1, 1) },
-        };
+        
 
         private readonly IWebHostEnvironment _webHostEnvironment;
 
@@ -43,7 +24,7 @@ namespace LibraryManagementSystem.Controllers
 
         public IActionResult List()             //Yazarları listelerken kullanılan action
         {
-            var viewModel = _authors.Where(x => x.IsDeleted == false).Select(x => new AuthorListViewModel           //AuthorListViewModel modeli kullanılarak listeleme işlemi yapılır
+            var viewModel = StaticClass._authors.Where(x => x.IsDeleted == false).Select(x => new AuthorListViewModel           //AuthorListViewModel modeli kullanılarak listeleme işlemi yapılır
             {
                 Id = x.Id,
                 FirstName = x.FirstName,
@@ -57,7 +38,7 @@ namespace LibraryManagementSystem.Controllers
 
         public IActionResult Details(int id)            //Detayda book ve author tabloları birleştirilerek artık author tarafında da book nesneleri view'e taşınabilir
         {
-            var viewModel = _authors.Where(x => x.Id == id).Select(x => new AuthorListViewModel
+            var viewModel = StaticClass._authors.Where(x => x.Id == id).Select(x => new AuthorListViewModel
             {
                 FirstName = x.FirstName,
                 LastName = x.LastName,
@@ -78,7 +59,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Authors = _authors;
+            ViewBag.Authors = StaticClass._authors;
             return View();
 
         }
@@ -90,7 +71,7 @@ namespace LibraryManagementSystem.Controllers
             {
                 return View();
             }
-            int maxId = _authors.Max(x => x.Id);
+            int maxId = StaticClass._authors.Max(x => x.Id);
 
             // Yazar oluşturulurken resim dosyası eklenebilmesi için
             // Eğer dosya yüklendiyse
@@ -132,7 +113,7 @@ namespace LibraryManagementSystem.Controllers
                 
                 
             };
-            _authors.Add(newAuthor);
+            StaticClass._authors.Add(newAuthor);
 
            
             return RedirectToAction("List");
@@ -142,7 +123,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var author = _authors.Find(x=> x.Id == id);
+            var author = StaticClass._authors.Find(x=> x.Id == id);
 
             var viewModel = new AuthorEditViewModel()
             {
@@ -193,7 +174,7 @@ namespace LibraryManagementSystem.Controllers
                 // Burada model.ImageFile yerine dosyanın sunucuda kaydedildiği `filePath`'i saklayabilir veya veritabanına kaydedebilirsiniz.
             }
 
-            var author = _authors.Find(x => x.Id == formData.Id);
+            var author = StaticClass._authors.Find(x => x.Id == formData.Id);
 
             author.FirstName = formData.FirstName;
             author.LastName = formData.LastName;
@@ -209,7 +190,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult ConfirmDelete(int id)
         {
-            var author = _authors.Find(x => x.Id == id);
+            var author = StaticClass._authors.Find(x => x.Id == id);
             if (author != null)
             {
                 ViewBag.AuthorTitle = author.FirstName +" "+ author.LastName; // Kitap başlığını view'a gönderiyoruz
@@ -233,7 +214,7 @@ namespace LibraryManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var author = _authors.Find(x => x.Id == id);
+            var author = StaticClass._authors.Find(x => x.Id == id);
             if (author != null)
             {
                 author.IsDeleted = true;

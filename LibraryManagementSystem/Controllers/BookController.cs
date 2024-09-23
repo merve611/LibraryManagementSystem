@@ -7,36 +7,16 @@ namespace LibraryManagementSystem.Controllers
 {
     public class BookController : Controller
     {
-        static List<BookEntity> _books = new List<BookEntity>()
-        {
-            new BookEntity{ Id = 1, Title = "Sırça Köşk", AuthorId = 1, Genre = "Psikolojik Roman", PublishDate =  new DateTime(1947, 1, 1)},
-
-            new BookEntity{ Id = 2, Title = "Harry Potter ve Felsefe Taşı", AuthorId = 2, Genre = "Fantastik Roman", PublishDate = new DateTime(1997,1, 1) },
-            new BookEntity{ Id = 3, Title = "Suç ve Ceza", AuthorId = 3, Genre = "Felsefi Roman", PublishDate = new DateTime(1886, 1, 1) },
-            new BookEntity{ Id = 4, Title = "Rezonans Kanunu", AuthorId = 4, Genre = "Kişisel Gelişim", PublishDate = new DateTime(2019,1, 1) },
-            new BookEntity{ Id = 5, Title = "Bir Ömür Nasıl Yaşanır", AuthorId = 5, Genre = "Kişisel Gelişim", PublishDate = new DateTime(2019, 1, 1) },
-        };
-
-        static List<AuthorEntity> _authors = new List<AuthorEntity>()
-        {
-            new AuthorEntity { Id = 1, FirstName = "Sabahattin", LastName= "Ali", ImageUrl = "../images/Sabahattin_ali.jpg" },
-            new AuthorEntity { Id = 2, FirstName = "J. K. ", LastName= "Rowling", ImageUrl = "../images/J.K.-Rowling.jpg"},
-            new AuthorEntity { Id = 3, FirstName = "Fyodor", LastName="Dostoyevski", ImageUrl = "../images/Dostoyevski.jpg"},
-            new AuthorEntity { Id = 4, FirstName = "Pierre ", LastName= "Franckh", ImageUrl = "../images/Pierre.jpg"},
-            new AuthorEntity { Id = 5, FirstName = "İlber", LastName= "Ortaylı", ImageUrl = "../images/ilberuortay.jpg"}
-        };
-
-
-
+       
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult List()             //Kitapları listeleme actionı
         {
-            var viewModel = _books.Where(x => x.IsDeleted == false)
+            var viewModel = StaticClass._books.Where(x => x.IsDeleted == false)
                 .Join(
-                _authors,
+                StaticClass._authors,
                 book => book.AuthorId,
                 author => author.Id,
                 (book, author) => new { book, author }).Select(x => new BookListViewModel       //silinmemiş kitapları seçerek ilgili viewmodele projekte ederek listelenir
@@ -53,9 +33,9 @@ namespace LibraryManagementSystem.Controllers
         }
         public IActionResult Details(int id)        //Kitap detayını gösteren action
         {
-            var viewModel = _books.Where(x => x.Id == id)
+            var viewModel = StaticClass._books.Where(x => x.Id == id)
                 .Join(
-                _authors,
+                StaticClass._authors,
                 book => book.AuthorId,
                 author => author.Id,
                 (book, author) => new { book, author }).Select(x => new BookListViewModel       //silinmemiş kitapları seçerek ilgili viewmodele projekte ederek listelenir
@@ -82,7 +62,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Authors = _authors.Select(a => new              //veriyi view'e taşırken isim ve soyismi fullname değişkeni altında taşıması için
+            ViewBag.Authors = StaticClass._authors.Select(a => new              //veriyi view'e taşırken isim ve soyismi fullname değişkeni altında taşıması için
             {
                 Id = a.Id,
                 FullName = $"{a.FirstName} {a.LastName}"
@@ -98,7 +78,7 @@ namespace LibraryManagementSystem.Controllers
             {
                 return View();
             }
-            int maxId = _books.Max(x => x.Id);
+            int maxId = StaticClass._books.Max(x => x.Id);
 
             var newBook = new BookEntity()
             {
@@ -108,7 +88,7 @@ namespace LibraryManagementSystem.Controllers
                 Genre = formData.Genre,
                 PublishDate = formData.PublishDate,
             };
-            _books.Add(newBook);
+            StaticClass._books.Add(newBook);
 
 
             return RedirectToAction("List");
@@ -117,7 +97,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var book = _books.Find(x => x.Id == id);
+            var book = StaticClass._books.Find(x => x.Id == id);
 
             var viewModel = new BookEditViewModel()
             {
@@ -128,7 +108,7 @@ namespace LibraryManagementSystem.Controllers
                 PublishDate = book.PublishDate,
             };
 
-            ViewBag.Authors = _authors;
+            ViewBag.Authors = StaticClass._authors;
 
             return View(viewModel);
 
@@ -142,7 +122,7 @@ namespace LibraryManagementSystem.Controllers
                 return View(formData);
             }
 
-            var book = _books.Find(x => x.Id == formData.Id);
+            var book = StaticClass._books.Find(x => x.Id == formData.Id);
 
             book.Title = formData.Title;
             book.Genre = formData.Genre;
@@ -157,7 +137,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult ConfirmDelete(int id)
         {
-            var book = _books.Find(x => x.Id == id);
+            var book = StaticClass._books.Find(x => x.Id == id);
             if (book != null)
             {
                 ViewBag.BookTitle = book.Title; // Kitap başlığını view'a gönderiyoruz
@@ -179,7 +159,7 @@ namespace LibraryManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var book = _books.Find(x => x.Id == id);
+            var book = StaticClass._books.Find(x => x.Id == id);
             if (book != null)
             {
                 book.IsDeleted = true;

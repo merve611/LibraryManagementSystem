@@ -1,7 +1,9 @@
 ﻿@model AuthorCreateViewModel
+
+<h3>Yeni Yazar Ekleme Sayfası</h3>
 @if (User.Claims.FirstOrDefault(x => x.Type == "id")?.Value != null)
 {
-
+   
     @*Dosya ekleme bölümlü bir form*@
 
     @using (Html.BeginForm("Create", "Author", FormMethod.Post, new { enctype = "multipart/form-data" }))
